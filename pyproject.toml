@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "lazyframe"
+version = "0.1.0"
+description = "Smart lazy DataFrame execution engine across pandas, polars, and duckdb"
+readme = "README.md"
+requires-python = ">=3.9"
+authors = [
+  {name = "Arefin Amin", email = "arefinamin994@gmail.com"}
+]
+dependencies = [
+  "pandas>=2.0.0",
+]
+
+[project.optional-dependencies]
+polars = ["polars>=0.20.0"]
+duckdb = ["duckdb>=1.0.0"]
+dev = [
+  "pytest>=8.0.0",
+]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["lazyframe*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
